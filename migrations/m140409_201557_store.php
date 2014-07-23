@@ -22,6 +22,7 @@ class m140409_201557_store extends DbMigration
             'out_of_stock_counter'=>'INT UNSIGNED DEFAULT 0',
             'price'=>'DECIMAL(10,2) NOT NULL DEFAULT 0',
             'status'=>'TINYINT NOT NULL DEFAULT 0',
+			'featured'=>'TINYINT NOT NULL DEFAULT 0',
             'action_enabled'=>'TINYINT NOT NULL DEFAULT 0',
             'action_start'=>'DATE',
             'action_end'=>'DATE',
