@@ -106,7 +106,10 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
             <h4><?= t('Content') ?></h4>
             <?php $this->widget('\yg\tb\RedactorWidget',[
                 'model'=>$model,
-                'attribute'=>'content'
+                'attribute'=>'content',
+                'options'=>[
+                    'css' => Config::get('mainCssFile'),
+                ],
             ]);?>
             <?= $form->error($model, 'content') ?>
         </div>

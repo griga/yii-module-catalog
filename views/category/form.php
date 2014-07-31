@@ -104,7 +104,10 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
             <?php $this->widget('\yg\tb\RedactorWidget', [
                 'model' => $model,
                 'attribute' => 'content',
-                'height' => 400
+                'options'=>[
+                    'minHeight'=>400,
+                    'css' => Config::get('mainCssFile'),
+                ],
             ]);?>
             <?= $form->error($model, 'content') ?>
 
