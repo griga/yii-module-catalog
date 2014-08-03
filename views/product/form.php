@@ -47,7 +47,7 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
                 'labelColWidth' => 4,
             ]); ?>
             <?= $form->textControl($model, 'price'); ?>
-            <?= $form->textControl($model, 'remains', ['disabled' => true]); ?>
+            <?= $form->textControl($model, 'remains'); ?>
             <?= $form->textControl($model, 'remains_warning', ['class' => 'form-control ygnf-number-field']); ?>
         </div>
         <?php $this->renderPartial('_relatedProducts',['model'=>$model])?>
