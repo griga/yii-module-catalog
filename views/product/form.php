@@ -47,7 +47,7 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
                 'labelColWidth' => 4,
             ]); ?>
             <?= $form->textControl($model, 'price'); ?>
-            <?= $form->textControl($model, 'remains'); ?>
+            <?= $form->textControl($model, 'remains', ['class' => 'form-control ygnf-number-field']); ?>
             <?= $form->textControl($model, 'remains_warning', ['class' => 'form-control ygnf-number-field']); ?>
         </div>
         <?php $this->renderPartial('_relatedProducts',['model'=>$model])?>
@@ -99,6 +99,19 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
                     ]);?>
                 </div>
             </div>
+        </div>
+		
+		 <div class="well">
+            <h4><?= t('Short content') ?></h4>
+            <?php $this->widget('\yg\tb\RedactorWidget',[
+                'model'=>$model,
+                'attribute'=>'short_content',
+                'options'=>[
+                    'css' => Config::get('mainCssFile'),
+					'minHeight'=>100
+                ],
+            ]);?>
+            <?= $form->error($model, 'short_content') ?>
         </div>
 
 
