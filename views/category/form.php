@@ -83,6 +83,8 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
 
             </div>
         <?php endif;?>
+
+
     </div>
 </div>
 
@@ -114,6 +116,11 @@ $form = $this->beginWidget('\yg\tb\ActiveForm', [
         </div>
 
     </div>
+
+    <div class="col-sm-3">
+        <?php $this->widget('application.modules.customfield.widgets.CustomFieldAdminWidget',[
+            'model'=>$model
+        ]);?>    </div>
 </div>
 
 <div class="row">

@@ -81,7 +81,10 @@ class ProductCategory extends CrudActiveRecord
             ],
             'mtms'=>[
                 'class'=>'ManyToManySaveBehavior'
-            ]
+            ],
+            'customfield'=>[
+                'class'=>'application.modules.customfield.components.CustomFieldBehavior',
+            ],
         ];
     }
 
