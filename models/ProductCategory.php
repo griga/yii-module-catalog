@@ -232,17 +232,6 @@ class ProductCategory extends CrudActiveRecord
         return parent::beforeDelete();
     }
 
-    public function getAsList($excludeId = false){
-        $criteria = new CDbCriteria();
-        if($excludeId){
-            if(!is_array($excludeId)){
-                $excludeId = [$excludeId];
-            }
-            $criteria->addNotInCondition('id',$excludeId);
-        }
-
-        return CHtml::listData(self::model()->findAll($criteria),'id','name');
-    }
 
     private $recursiveCache;
     private $cachedRawData;

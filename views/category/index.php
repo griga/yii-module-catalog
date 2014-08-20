@@ -29,30 +29,12 @@ $data = ProductCategory::model()->getDataForRecursiveRender();
 
         <hr/>
 
-        <?php $this->widget('application.modules.catalog.widgets.CategoryListWidget', array(
-            'categories'=>$data,
+        <?php $this->widget('webroot.themes.commerce.back.widgets.SortableModelsWidget', array(
+            'models'=>$data,
             'sortableParent'=>true,
+            'controllerUrl'=>'/catalog/category/',
         ));?>
 
 
-        <script type="text/javascript">
-            $(function(){
-                $('#categories-list').nestedSortable({
-                    forcePlaceholderSize: true,
-                    handle: 'div',
-                    helper:	'clone',
-                    items: 'li',
-                    opacity: .6,
-                    placeholder: 'placeholder',
-                    tabSize: 10,
-                    tolerance: 'pointer',
-                    toleranceElement: '> div',
-                    stop: function(event, ui){
-                        var data = $('#categories-list').nestedSortable('toHierarchy', {startDepthCount: 0});
-                        $.post('<?= app()->createUrl('/catalog/category/sort') ?>', {data:data});
-                    }
-                });
-            });
-        </script>
     </div>
 </div>
