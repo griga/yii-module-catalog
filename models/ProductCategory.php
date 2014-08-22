@@ -85,6 +85,21 @@ class ProductCategory extends CrudActiveRecord
             'customfield'=>[
                 'class'=>'application.modules.customfield.components.CustomFieldBehavior',
             ],
+            'pureContentBehavior'=>[
+                'class'=>'PureContentBehavior',
+                'fields'=>[
+                    'name'=>'h1',
+                    'content'=>'div',
+                    'products'=>[
+                        'list'=>true,
+                        'fields'=>[
+                            'name'=>'h2',
+                            'short_content'=>'div',
+                            'alias'=>'alias'
+                        ],
+                    ],
+                ]
+            ]
         ];
     }
 

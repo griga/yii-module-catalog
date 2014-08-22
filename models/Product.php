@@ -318,7 +318,9 @@ class Product extends CrudActiveRecord implements IECartPosition
                 ],
                 'linkable'=>[
                     'class'=>'LinkableBehavior',
-                    'urlRule'=>'return ($model->alias ? "/{$model->alias}/" : "/" ) . "p". $model->id;',
+                    'urlPath'=>'/product/',
+                    'urlAttribute'=>'alias',
+                    'titleAttribute'=>'name',
                 ],
                 'aliasBehavior'=>[
                     'class'=>'AliasBehavior',
@@ -340,6 +342,17 @@ class Product extends CrudActiveRecord implements IECartPosition
                 ],
                 'mtms'=>[
                     'class'=>'ManyToManySaveBehavior'
+                ],
+                'pureContentBehavior'=>[
+                    'class'=>'PureContentBehavior',
+                    'fields'=>[
+                        'name'=>'h1',
+                        'image'=>'image',
+                        'content'=>'div',
+                        'price'=>function($data){
+                                return CHtml::tag('div', [],Config::get('site_currency') . $data->price);
+                            },
+                    ]
                 ]
 
             ]
