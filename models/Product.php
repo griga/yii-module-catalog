@@ -349,9 +349,7 @@ class Product extends CrudActiveRecord implements IECartPosition
                         'name'=>'h1',
                         'image'=>'image',
                         'content'=>'div',
-                        'price'=>function($data){
-                                return CHtml::tag('div', [],Config::get('site_currency') . $data->price);
-                            },
+                        'price'=>'proce',
                     ]
                 ]
 
