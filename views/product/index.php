@@ -60,6 +60,15 @@ $this->widget('ext.yg.GridFilterClearButtons', [
                             'class'=>'col-sm-1',
                         ],
                     ],
+                    [
+                        'name' => 'price',
+                        'class'=>'\yg\tb\EditableColumn',
+                        'action'=>'/admin/catalog/product/ajax-update-field',
+                        'filter' => false,
+                        'headerHtmlOptions'=>[
+                            'class'=>'col-sm-2',
+                        ],
+                    ],
 //                    [
 //                        'name' => 'blockedRemains',
 //                        'filter' => false,
@@ -76,21 +85,7 @@ $this->widget('ext.yg.GridFilterClearButtons', [
 //                            'class' => 'small-column-header'
 //                        ),
 //                    ),
-                    [
-                        'name' => 'manufacturer_id',
-                        'filter' => CHtml::listData(Manufacturer::model()->findAll(),'id','name'),
-                        'value'=> function($product){
-                            return $product->manufacturer ? $product->manufacturer->name : '';
-                        },
-                        'headerHtmlOptions'=>[
-                            'class'=>'col-sm-2',
-                        ],
-                    ],
-                    [
-                        'name'=>'featured',
-                        'class'=>'\yg\tb\CheckboxColumn',
-                        'action'=>'/admin/catalog/product/featured-toggle',
-                    ],
+
                     [
                         'name'=>'sort',
                         'class'=>'\yg\tb\SortColumn',
